@@ -88,10 +88,11 @@ public class FileSystemWatcher {
 
   public func watch(paths: [String], for events: [FileSystemEventType],
       thenInvoke callback: @escaping (FileSystemEvent) -> Void) -> [WatchDescriptor] {
-    var flags: UInt32 = events.count > 0 ? 0 : 1
+    var flags: UInt32 = events.count > 0 ? 0 : 0x00000FFF
     for event in events {
       flags |= event.rawValue
     }
+    print("flags=\(flags)")
 
     var wds = [WatchDescriptor]() // watch descriptors for the call only
 
