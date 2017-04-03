@@ -92,7 +92,6 @@ public class FileSystemWatcher {
     for event in events {
       flags |= event.rawValue
     }
-    print("flags=\(flags)")
 
     var wds = [WatchDescriptor]() // watch descriptors for the call only
 
